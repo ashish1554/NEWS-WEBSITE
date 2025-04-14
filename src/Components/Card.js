@@ -15,7 +15,7 @@ const Card = ({data}) => {
             <img src={item.urlToImage} alt={`news-${index}`} />
 
             <div className='content'>
-              <a href='#' className='tag' onClick={()=>window.open(item.url)}>
+              <a href={item.url} className='tag' onClick={()=>window.open(item.url)}>
               {item.title}
               </a>
               <p>

@@ -7,15 +7,7 @@ const [newsData, setNewsData] = useState([])
 const handleinput=(e)=>{
     setSearch(e.target.value)
 }
-useEffect(()=>{
-    // getData()
-    const getData=async()=>{
-      const response=await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`)
-      const jsonData=await response.json()
-      console.log(jsonData.articles)
-      setNewsData(jsonData.articles)
-  }
-},[])
+
 
 
 const getData=async()=>{
@@ -27,6 +19,9 @@ const getData=async()=>{
 const userInput=(e)=>{
     setSearch(e.target.value)
 }
+useEffect(()=>{
+  getData()
+},[])
   return (
     <div>
         <nav>
@@ -34,8 +29,10 @@ const userInput=(e)=>{
                 <h1>Trending News</h1>
             </div>
             <ul>
-                <a href='#'>All News</a>
-                <a href='#'>Trending</a>
+                {/* <a href='#'>All News</a>
+                <a href='#'>Trending</a> */}
+                       <button onClick={() => setSearch("all")}>All News</button>
+                       <button onClick={() => setSearch("trending")}>Trending</button>
             </ul>
             <div className='searchBar'>
                 <input onChange={handleinput} type="text" placeholder='Search News' value={search}></input>
