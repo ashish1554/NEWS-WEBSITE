@@ -8,7 +8,13 @@ const handleinput=(e)=>{
     setSearch(e.target.value)
 }
 useEffect(()=>{
-    getData()
+    // getData()
+    const getData=async()=>{
+      const response=await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`)
+      const jsonData=await response.json()
+      console.log(jsonData.articles)
+      setNewsData(jsonData.articles)
+  }
 },[])
 
 
