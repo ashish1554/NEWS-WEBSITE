@@ -54,7 +54,7 @@
 
 // export default Newsapp
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Card from './Card';
 
 const Newsapp = () => {
@@ -66,7 +66,8 @@ const Newsapp = () => {
     setSearch(e.target.value);
   };
 
-  const getData = async () => {
+  // Memoizing the getData function using useCallback
+  const getData = useCallback(async () => {
     try {
       const response = await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`);
       const jsonData = await response.json();
@@ -74,12 +75,12 @@ const Newsapp = () => {
     } catch (error) {
       console.error("Error fetching news:", error);
     }
-  };
+  }, [search]);  // The function will be re-created if 'search' changes
 
-  // ✅ Make getData a dependency of useEffect (as warning suggested)
+  // Using useEffect to call getData when 'search' changes
   useEffect(() => {
     getData();
-  }, [search]);
+  }, [getData]);  // Using getData in dependency array
 
   const handleCategoryClick = (e) => {
     setSearch(e.target.value);
@@ -92,7 +93,6 @@ const Newsapp = () => {
           <h1>Trending News</h1>
         </div>
         <ul>
-          {/* ✅ href="#" replaced with proper buttons for accessibility */}
           <li><button onClick={() => setSearch('all')}>All News</button></li>
           <li><button onClick={() => setSearch('trending')}>Trending</button></li>
         </ul>
