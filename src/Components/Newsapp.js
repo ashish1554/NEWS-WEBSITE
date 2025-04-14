@@ -7,9 +7,17 @@ const [newsData, setNewsData] = useState([])
 const handleinput=(e)=>{
     setSearch(e.target.value)
 }
-useEffect(()=>{
-    getData()
-},[])
+// useEffect(()=>{
+//     getData()
+// },[])
+useEffect(() => {
+  const debounced = debounce(() => {
+    getData();
+  }, 500);
+
+  debounced();
+}, [getData]);
+
 const getData=async()=>{
     const response=await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`)
     const jsonData=await response.json()

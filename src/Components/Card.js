@@ -1,19 +1,21 @@
 import React from 'react';
 
 const Card = ({data}) => {
-  const moreinfo = (url) => {
-    return () => {
-      window.open(url); // open new window with default settings
-    }
-  }
+  // const moreinfo = (url) => {
+  //   return () => {
+  //     window.open(url); // open new window with default settings
+  //   }
+  // }
   return (
     <div className='cardContainer'>
       {data.map((item,index)=>{
         return(
           <div className='card'>
-            <img src={item.urlToImage}></img>
+            {/* <img src={item.urlToImage}></img> */}
+            <img src={item.urlToImage} alt={`news-${index}`} />
+
             <div className='content'>
-              <a href='' className='tag' onClick={()=>window.open(item.url)}>
+              <a href='{item.url}' className='tag' onClick={()=>window.open(item.url)}>
               {item.title}
               </a>
               <p>
