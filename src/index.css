@@ -1,0 +1,137 @@
+ 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  background-color:lightblue;
+  padding: 9px;
+  align-items: center;
+}
+nav a
+{
+  text-decoration: none;
+  color: black;
+  margin-right: 10px;
+}
+nav input
+{
+  padding: 10px;
+  font-size: 15px;
+}
+nav button
+{
+  background-color: rgb(81, 185, 81);
+  color: white;
+  height: 42px;
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+.searchBar
+{
+  padding: 4px;
+  /* background-color: green; */
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.categoryBtn
+{
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap:wrap ;
+}
+.categoryBtn button{
+  background-color: tomato;
+  color: white;
+  padding: 5px 20px;
+  border: 2px solid white;
+  border-radius: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  /* margin-top: px; */
+}
+.head
+{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+.cardContainer
+{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  /* gap: 30px; */
+  justify-content: space-evenly;
+  /* background-color: green; */
+  margin-top: 5px;
+}
+.card
+{
+  margin-top: 15px;
+  height: 500px;
+  width:460px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 2px black;
+  /* padding: 5px; */
+  /* border: 2px solid black; */
+  border-radius: 10px;
+  overflow: hidden;
+  justify-content: space-between;
+  /* position: relative; */
+}
+.card img{
+  /* width: 300px; */
+  height: 300px;
+  object-fit: cover;
+}
+.card button{
+  background-color: skyblue;
+  /* position: absolute; */
+  color: white;
+  /* align-items: center; */
+  padding: 10px;
+  font-size: 15px;
+  margin-left: 40%;
+  margin-bottom: 10px;
+  border-radius:15px;
+  cursor: pointer;
+}
+.tag
+{
+  text-decoration: none;
+  color: black;
+} 
+
+
+@media(max-width: 480px) {
+  .head {
+    font-size: 20px;
+  }
+  nav {
+    justify-content: center;
+  }
+  nav input, nav button {
+    width: 100%;
+  }
+  .card {
+    height: auto;
+    width: 100%;
+  }
+  .card img {
+    height: 250px;
+  }
+  .card button {
+    margin-left: 35%;
+  }
+}
