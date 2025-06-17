@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Card from './Card'
 const Newsapp = () => {
 const API_KEY="ad89097790924d1b8f1af6a3034a9873"
@@ -11,7 +11,9 @@ const handleinput=(e)=>{
 
 
 const getData=async()=>{
-    const response=await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`)
+    // const response=await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`)
+    const response=await fetch(`https://gnews.io/api/v4/search?q=${search}&apiKey=${API_KEY}`)
+
     const jsonData=await response.json()
     console.log(jsonData.articles)
     setNewsData(jsonData.articles)
